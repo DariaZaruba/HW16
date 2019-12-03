@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Abra cadbra testing">
+    <test name="Regression Testing">
+        <classes>
+            <class name="LandingPage">
+            </class>
+            <class name="SignInPage">
+                <methods>
+                    <exclude name="submitCreationButton"/>
+                    <exclude name="submitLoginButton"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
