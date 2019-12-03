@@ -8,5 +8,5 @@ WebDriver. +
 7. Configure the test suite to run all tests from the first class and only two from the second.
 8. Create a @DataProvider method to generate some data for your tests.
 9. Add your data provider to any test you wish.
-1) You can write your tests for any web site or for your project.
-2) You can use dataProvider to generate login information.
+  1) You can write your tests for any web site or for your project.
+  2) You can use dataProvider to generate login information.

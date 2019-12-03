@@ -1,28 +1,39 @@
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.UUID;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
-import java.util.zip.ZipFile;
 
 public class LandingPage {
 
     public WebDriver driver;
+    public String url = "http://automationpractice.com/index.php";
+
+    @BeforeSuite
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        System.out.println("The setup process is completed");
+    }
 
     @BeforeTest
     public void doBeforeTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.navigate().to("http://automationpractice.com/index.php");
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
+//        driver = new ChromeDriver();
+//        driver.navigate().to("http://automationpractice.com/index.php");
+        driver.manage().window().maximize();
+        System.out.println("The profile setup process is completed");
+    }
+
+    @BeforeClass
+    public void appSetup() {
+        driver.get(url);
+        System.out.println("The app setup process is completed");
+    }
+
+    @BeforeMethod
+    public void checkLanding() {
+        driver.get(url);
     }
 
     @AfterTest
@@ -33,10 +44,6 @@ public class LandingPage {
     @Test
     public void signInButton() {
 
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
-//        WebDriver driver = new ChromeDriver();
-//        driver.navigate().to("http://automationpractice.com/index.php");
-//
         String name = new Object() {
         }.getClass().getEnclosingMethod().getName();
         if (driver.findElement(By.cssSelector(".header_user_info a")) != null) {
@@ -44,15 +51,10 @@ public class LandingPage {
         } else {
             System.out.println("Element is Absent");
         }
-//        driver.close();
     }
 
     @Test
     public void Banner() {
-
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
-//        WebDriver driver = new ChromeDriver();
-//        driver.navigate().to("http://automationpractice.com/index.php");
 
         String name = new Object() {
         }.getClass().getEnclosingMethod().getName();
@@ -62,15 +64,10 @@ public class LandingPage {
         } else {
             System.out.println("Element is Absent");
         }
-//        driver.close();
     }
 
     @Test
     public void contactUs() {
-
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
-//        WebDriver driver = new ChromeDriver();
-//        driver.navigate().to("http://automationpractice.com/index.php");
 
         String name = new Object() {
         }.getClass().getEnclosingMethod().getName();
@@ -80,15 +77,10 @@ public class LandingPage {
         } else {
             System.out.println("Element is Absent");
         }
-//        driver.close();
     }
 
     @Test
     public void searchButton() {
-
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\spdguest\\WebDriver\\chromedriver.exe");
-//        WebDriver driver = new ChromeDriver();
-//        driver.navigate().to("http://automationpractice.com/index.php");
 
         String name = new Object() {
         }.getClass().getEnclosingMethod().getName();
@@ -98,8 +90,8 @@ public class LandingPage {
         } else {
             System.out.println("Element is Absent");
         }
-//        driver.close();
     }
+
 }
 
 

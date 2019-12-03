@@ -8,6 +8,7 @@
                 <methods>
                     <exclude name="submitCreationButton"/>
                     <exclude name="submitLoginButton"/>
+                    <exclude name="emaiAddressField"></exclude>
                 </methods>
             </class>
         </classes>
